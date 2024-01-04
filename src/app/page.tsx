@@ -1,4 +1,3 @@
-import { ACTION } from 'next/dist/client/components/app-router-headers';
 import StatusLabel, { Status } from './components/active-label';
 
 export default function Home() {

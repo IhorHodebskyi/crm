@@ -10,13 +10,13 @@ export enum Status {
 export interface StatusLabelProps {
   children: React.ReactNode;
   status: Status;
-  disablet?: boolean;
+  disable?: boolean;
 }
 
 export default function StatusLabel({
   children,
   status,
-  disablet,
+  disable: disable,
 }: StatusLabelProps) {
   return (
     <div
@@ -26,7 +26,7 @@ export default function StatusLabel({
         status === Status.NotAction && 'text-red-700 bg-red-100',
         status === Status.Pending && 'text-orange-700 bg-orange-100',
         status === Status.Suspended && 'text-blue-700 bg-blue-100',
-        { ['opasity-75 cursor-not-allowed']: disablet }
+        { ['opacity-75 cursor-not-allowed']: disable }
       )}
     >
       <div className="w-1 h-1 mr-2 rounded-full bg-current" />
