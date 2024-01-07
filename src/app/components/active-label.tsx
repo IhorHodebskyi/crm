@@ -13,11 +13,7 @@ export interface StatusLabelProps {
   disable?: boolean;
 }
 
-export default function StatusLabel({
-  children,
-  status,
-  disable: disable,
-}: StatusLabelProps) {
+export default function StatusLabel({ children, status, disable: disable }: StatusLabelProps) {
   return (
     <div
       className={clsx(
