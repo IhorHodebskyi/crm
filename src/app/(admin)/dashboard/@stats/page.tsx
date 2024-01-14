@@ -16,9 +16,13 @@ export default async function Page({}: PageProps) {
 
   return (
     <div className="grid grid-cols-12 gap-5">
-      {(Object.keys(labelByStat) as (keyof SummaryStats)[]).map(key => (
+      {(Object.keys(labelByStat) as (keyof SummaryStats)[]).map((key) => (
         <div key={key} className="col-span-3">
-          <StatCard type={StatCardType.Gradient} label={labelByStat[key]} counter={data[key]} />
+          <StatCard
+            type={StatCardType.Gradient}
+            label={labelByStat[key]}
+            counter={data[key]}
+          />
         </div>
       ))}
     </div>

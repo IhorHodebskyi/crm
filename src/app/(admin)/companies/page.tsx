@@ -1,22 +1,11 @@
-import Header from '@/app/components/header';
 import React from 'react';
-import Toolbar from '../../components/toolbar';
-import SearchInput from '../../components/search-input';
-import AddCompanyButton from '../../components/add-company-button';
-import CompanyTable from '../../components/company-table';
+import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
+import { getCompanies } from '@/lib/api';
+import getQueryClient from '@/lib/utils/getQueryClient';
+import CompanyTable from '@/app/components/company-table';
 
-export interface PageProps {
-  params: { id: string[] };
-}
+export interface PageProps {}
 
-export default async function Page({ params }: PageProps) {
-  return (
-    <>
-      <Header>Companies</Header>
-      <Toolbar action={<AddCompanyButton />}>
-        <SearchInput />
-      </Toolbar>
-      <CompanyTable></CompanyTable>
-    </>
-  );
+export default async function Page({}: PageProps) {
+  return <CompanyTable />;
 }

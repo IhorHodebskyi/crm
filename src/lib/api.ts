@@ -56,9 +56,11 @@ export interface Promotion {
 
 const PROJECT_TOKEN = process.env.NEXT_PUBLIC_PROJECT_TOKEN;
 
-const buildUrl = (...paths: string[]) => `https://${PROJECT_TOKEN}.mockapi.io/api/v1/${paths.join('/')}`;
+const buildUrl = (...paths: string[]) =>
+  `https://${PROJECT_TOKEN}.mockapi.io/api/v1/${paths.join('/')}`;
 
-const stringifyQueryParams = (params: Record<string, string>) => new URLSearchParams(params).toString();
+const stringifyQueryParams = (params: Record<string, string>) =>
+  new URLSearchParams(params).toString();
 
 const sendRequest = async <T>(url: string, init?: RequestInit) => {
   const res = await fetch(url, init);
@@ -93,11 +95,20 @@ export const getCompany = (id: string, init?: RequestInit) => {
   return sendRequest<Company>(buildUrl('companies', id), init);
 };
 
-export const getPromotions = async (params: Record<string, string> = {}, init?: RequestInit) => {
-  return sendRequest<Promotion[]>(`${buildUrl('promotions')}?${stringifyQueryParams(params)}`, init);
+export const getPromotions = async (
+  params: Record<string, string> = {},
+  init?: RequestInit,
+) => {
+  return sendRequest<Promotion[]>(
+    `${buildUrl('promotions')}?${stringifyQueryParams(params)}`,
+    init,
+  );
 };
 
-export const createCompany = async (data: Omit<Company, 'id' | 'hasPromotions'>, init?: RequestInit) => {
+export const createCompany = async (
+  data: Omit<Company, 'id' | 'hasPromotions'>,
+  init?: RequestInit,
+) => {
   return sendRequest<Company>(buildUrl('companies'), {
     ...init,
     method: 'POST',
@@ -109,7 +120,10 @@ export const createCompany = async (data: Omit<Company, 'id' | 'hasPromotions'>,
   });
 };
 
-export const createPromotion = async (data: Omit<Promotion, 'id'>, init?: RequestInit) => {
+export const createPromotion = async (
+  data: Omit<Promotion, 'id'>,
+  init?: RequestInit,
+) => {
   return sendRequest<Promotion>(buildUrl('promotions'), {
     method: 'POST',
     body: JSON.stringify(data),

@@ -1,9 +1,9 @@
 import React from 'react';
 import { getPromotions } from '@/lib/api';
 import SummaryTable from '@/app/components/summary-table';
-import DashboardCard from '@/app/components/dashboard-card';
 import SummaryTableHeader from '@/app/components/summary-table-header';
 import SummaryTableCell from '@/app/components/summary-table-cell';
+import DashboardCard from '@/app/components/dashboard-card';
 
 export interface PageProps {}
 
